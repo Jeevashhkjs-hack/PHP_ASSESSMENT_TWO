@@ -71,7 +71,15 @@ class router {
                 if($key['action']){
                     switch ($key['action']){
                         case 'home':
-                            $this->controller->home($_POST);
+                            $this->controller->home();
+                            break;
+
+                        case 'createDabase':
+                            $this->controller->createDb($_POST['dbName']);
+                            break;
+
+                        case 'createTable':
+                            $this->controller->createTable($_POST);
                             break;
                         
                         default :

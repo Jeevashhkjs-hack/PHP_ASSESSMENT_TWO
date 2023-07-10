@@ -4,9 +4,14 @@
 </head>
 <body>
     <div class="container">
-        <form action="/" method="post">
-            <input type="text" name="dbName" />
-            <button type="submit">Submit</button>
+        <form action="/createDabase" method="post">
+            <button type="submit">Database Create</button>
+        </form>
+        <form action="/createTable" method="post">
+            <button type="submit">Table Create</button>
+        </form>
+        <form action="/createColumn" method="post">
+            <button type="submit">Column Create</button>
         </form>
     </div>
 </body>
