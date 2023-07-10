@@ -43,7 +43,6 @@ class userController{
     }
 
     public function createColumn($data){
-        print_r($data);
         if($data['selectedDb']){
          $this->tablesList = $this->model->getTables($data['selectedDb']);
          $dbList = $this->model->getDatabaseList();
