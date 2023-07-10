@@ -31,7 +31,7 @@ class userController{
             $count = count($dbNameList['columnName']);
             $this->model->createTable($dbName,$tableName);
             for($i=0;$i<$count;$i++){
-                $this->model->addColumn($dbName,$tableName,['columnName'][$i],$dbNameList['dataTypes'][$i]);
+                $this->model->addColumn($dbName,$tableName,$dbNameList['columnName'][$i],$dbNameList['dataTypes'][$i]);
             }
             header('location: /');
         }

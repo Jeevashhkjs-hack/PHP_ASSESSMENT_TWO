@@ -30,6 +30,7 @@ class userModel extends connection{
         ");
     }
     public function addColumn($dbNm,$table,$column,$datatype){
+        echo $column;
         $this->dbConnect->query("
         USE $dbNm;
         ALTER TABLE $table ADD COLUMN $column $datatype;

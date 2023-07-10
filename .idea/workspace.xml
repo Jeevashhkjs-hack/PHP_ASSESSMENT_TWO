@@ -20,15 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="208074cf-e001-48f7-bbd5-545db26ac6d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/style.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/router.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/userModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/userModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/createColumn.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/createColumn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/createDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/createDb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/createTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/createTable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/home.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../controller/userController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../controller/userController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../model/userModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../model/userModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/createDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/../view/createDb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/createTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/../view/createTable.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +35,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2SMj3a6X6PQJTJyR7rt3IfxOEAN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -65,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1688963149173</updated>
       <workItem from="1688963161943" duration="22334000" />
+      <workItem from="1689002562963" duration="6195000" />
     </task>
     <servers />
   </component>
@@ -81,6 +78,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="141" y="55" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1688967082845">
