@@ -20,7 +20,7 @@ class userModel extends connection{
     public function getDatabaseList(){
         return $this->dbConnect->query("SHOW DATABASES")->fetchAll(PDO::FETCH_OBJ);
     }
-    public function createTable($dbName,$tableName,$dataType){
+    public function createTable($dbName,$tableName){
         $this->dbConnect->query("
         USE $dbName;
         CREATE TABLE $tableName (
@@ -28,5 +28,19 @@ class userModel extends connection{
         primary key (id)
         )
         ");
+    }
+    public function addColumn($dbNm,$table,$column,$datatype){
+        $this->dbConnect->query("
+        USE $dbNm;
+        ALTER TABLE $table ADD COLUMN $column $datatype;
+        ");
+    }
+
+    public function getTables($getDb){
+         return $this->dbConnect->query("
+        SELECT TABLE_NAME AS tablesNameList 
+        FROM INFORMATION_SCHEMA.TABLES 
+        WHERE TABLE_SCHEMA = '$getDb'
+        ")->fetchAll(PDO::FETCH_OBJ);
     }
 }

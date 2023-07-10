@@ -81,7 +81,11 @@ class router {
                         case 'createTable':
                             $this->controller->createTable($_POST);
                             break;
-                        
+
+                            case 'createColumn';
+                            $this->controller->createColumn($_POST);
+                            break;
+
                         default :
                             $this->controller->index();
                     }

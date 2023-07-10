@@ -11,8 +11,9 @@
                 <?php endforeach; ?>
             </select>
             <div class="tableList">
+                <input type="text" name="tableName" />
                 <div class="inputField">
-                    <input type="text" name="tableName[]">
+                    <input type="text" name="columnName[]">
                     <select name="dataTypes[]">
                         <option value="int">Number</option>
                         <option value="varchar(255)">Text</option>
@@ -33,7 +34,7 @@
 
     tableBtn.addEventListener("click",()=>{
         let createRow = document.createElement('input');
-        createRow.name = "tableName[]";
+        createRow.name = "columnName[]";
         tableDiv.append(createRow);
 
         let createSelect = document.createElement('select');

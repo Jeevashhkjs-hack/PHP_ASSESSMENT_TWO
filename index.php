@@ -11,5 +11,6 @@ $router = new router();
 $router->get('/','home');
 $router->get('/createDabase','createDabase');
 $router->get('/createTable','createTable');
+$router->get('/createColumn','createColumn');
 
 $router->routingFunc();
