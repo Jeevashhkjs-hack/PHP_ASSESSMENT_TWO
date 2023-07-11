@@ -16,22 +16,50 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dbname").change(function () {
-                let domEle =$("#dbname").val();
+                var domEle =$("#dbname").val();
                 $.ajax({
                     url:'index.php',
                     method:'post',
                     data:'domEle='+domEle
                 }).done(function (tables) {
+                    // console.log(tables)
                     tables=JSON.parse(tables)
-                    $('#tableName').empty();
+                    $('#tableName').empty()
+                    $('#tableName').append(`<option>select</option>`);
                     tables.forEach(function (table) {
-                        $('#tableName').append('<option>'+ table.tablesname + '</option>')
+                        $('#tableName').append(`<option>${table.tablesname}</option>`);
+                        $('#tableName').addClass(`${table.TABLE_SCHEMA}`);
                     })
                 })
             })
+
         })
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#tableName").change(function () {
+                var table =$("#tableName").val();
+                console.log(table)
+                var dbname =$("#tableName").attr("class");
+                console.log(dbname)
+                $.ajax({
+                    url:'index.php',
+                    method:'post',
+                    data:{ table: table, dbname: dbname },
+                }).done(function (column) {
+                    console.log( column)// column=JSON.parse(column);
+                    // column.forEach(function (columns) {
+                    //     $('#columnDiv').append(`<label>${columns.column_name}</label>`+`<input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name=${columns.column_name} type="text">`)
+                    // })             // column=JSON.parse(column)
+                    var total = JSON.parse(column);
+                    console.log(total)
+
+                })
+            })
+
+        })
+    </script>
 </head>
 <body class="bg-sky-200">
     <?php require 'view/style.php' ?>
@@ -46,39 +74,17 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="columns">
+                <div class="tables">
                     <label>Table List</label>
-                    <select name="tableName" id="tableName" class="bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select name="tableName" id="tableName" >
                     </select>
+                </div>
+                <div class="columnDiv" id="columnDiv">
+
                 </div>
             </form>
 
         </div>
     </div>
-<!--<script>-->
-<!--    let tableDiv = document.querySelector('.inputField');-->
-<!--    let tableBtn = document.querySelector('.createTableRow');-->
-<!---->
-<!--    let dataTypes = ['int','varchar(255)','timestamp'];-->
-<!--    let displayDataTypes = ['Number','Text','Date Time']-->
-<!---->
-<!--    tableBtn.addEventListener("click",()=>{-->
-<!--        let createRow = document.createElement('input');-->
-<!--        createRow.name = "columnName[]";-->
-<!--        tableDiv.append(createRow);-->
-<!---->
-<!--        let createSelect = document.createElement('select');-->
-<!--        createSelect.id = 'selectDatatype';-->
-<!--        createSelect.name = 'dataTypes[]';-->
-<!--        tableDiv.appendChild(createSelect)-->
-<!---->
-<!--        for(let i=0;i<dataTypes.length;i++){-->
-<!--            let createOption = document.createElement('option');-->
-<!--            createOption.value = dataTypes[i];-->
-<!--            createOption.text = displayDataTypes[i];-->
-<!--            createSelect.appendChild(createOption);-->
-<!--        }-->
-<!---->
-<!--</script>-->
 </body>
 </html>

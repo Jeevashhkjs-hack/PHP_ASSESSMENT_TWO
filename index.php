@@ -16,6 +16,8 @@ $router->get('/createColumn','createColumn');
 if(isset($_POST['domEle'])){
     $controllers->getTablesFmDb($_POST['domEle']);
 }
-
+if(isset($_POST['table'])){
+    $controllers->getcolumns($_POST);
+}
 
 $router->routingFunc();
