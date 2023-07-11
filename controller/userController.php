@@ -16,8 +16,14 @@ class userController{
 
     public function createDb($dbName){
         if($dbName){
-            $this->model->createDb($dbName);
-            header('location: /');
+            $dbValidate = $this->model->dbValidation($dbName);
+            if(!isset($dbValidate[0]['SCHEMA_NAME'])){
+                $this->model->createDb($dbName);
+                header('location: /');
+            }
+            else {
+                echo "NOt OK";
+            }
         }
         else{
             require 'view/createDb.php';

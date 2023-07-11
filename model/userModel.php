@@ -44,4 +44,15 @@ class userModel extends connection{
         WHERE TABLE_SCHEMA = '$getDb'
         ")->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function dbValidation($getDbName){
+        return $this->dbConnect->query("
+        SELECT SCHEMA_NAME
+        FROM INFORMATION_SCHEMA.SCHEMATA
+        WHERE SCHEMA_NAME = '$getDbName'")->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function tableValidate(){
+
+    }
 }
