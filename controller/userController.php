@@ -1,7 +1,6 @@
 <?php
 
 require 'model/userModel.php';
-
 class userController{
     public $model;
     public $tableList;
@@ -22,10 +21,12 @@ class userController{
                 header('location: /');
             }
             else {
-                echo "NOt OK";
+                $_SESSION['alreadyExit'] = "already Exit";
+                require 'view/createDb.php';
             }
         }
         else{
+            unset( $_SESSION['alreadyExit']);
             require 'view/createDb.php';
         }
     }
@@ -37,7 +38,8 @@ class userController{
 
             $tableValidate = $this->model->tableValidate($tableName,$dbName);
             if($tableValidate[0]->tablesNameList){
-                echo "table already exits";
+                $_SESSION['tableExists'] = 'Exit';
+                require 'view/createTable.php';
             }
             else{
 
@@ -51,6 +53,7 @@ class userController{
             }
         }
         else{
+            unset($_SESSION['tableExists']);
             $dbList = $this->model->getDatabaseList();
             require 'view/createTable.php';
         }
@@ -70,4 +73,8 @@ class userController{
         }
     }
 
+    function getTablesFmDb($dbname){
+        $tableName= $this->model->getTablesFDb($dbname);
+        echo json_encode($tableName);
+    }
 }

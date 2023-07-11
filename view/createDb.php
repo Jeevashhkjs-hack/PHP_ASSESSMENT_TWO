@@ -7,11 +7,23 @@
         form{
             margin-top: 180px;
         }
+        .alert {
+            position: absolute;
+            top: 174px
+        }
     </style>
 </head>
 <body class="bg-sky-200">
         <?php require 'view/style.php' ?>
         <div class="w-full max-w-xs" style="margin: auto">
+            <?php if($_SESSION['alreadyExit']): ?>
+            <div class="alert bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong class="font-bold">Already Exits</strong>
+                <span class="block sm:inline">Database Name Already Exits</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              </span>
+            </div>
+            <?php endif; ?>
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/createDabase" method="post">
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="username">

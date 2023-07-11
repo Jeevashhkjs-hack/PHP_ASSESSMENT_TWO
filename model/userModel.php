@@ -59,4 +59,10 @@ class userModel extends connection{
         WHERE TABLE_SCHEMA = '$dbNm' and TABLE_NAME = '$tableNm'
         ")->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function getTablesFDb($dbname){
+        return $this->dbConnect->query("SELECT TABLE_NAME AS tablesname 
+        FROM INFORMATION_SCHEMA.TABLES 
+        WHERE TABLE_SCHEMA = '$dbname'")->fetchAll(PDO::FETCH_OBJ);
+    }
 }
