@@ -34,12 +34,21 @@ class userController{
         if($dbNameList){
             $dbName = $dbNameList['selectedDb'];
             $tableName = $dbNameList['tableName'];
+
+            $tableValidate = $this->model->tableValidate($tableName,$dbName);
+            if($tableValidate[0]->tablesNameList){
+                echo "table already exits";
+            }
+            else{
+
             $count = count($dbNameList['columnName']);
+
             $this->model->createTable($dbName,$tableName);
             for($i=0;$i<$count;$i++){
                 $this->model->addColumn($dbName,$tableName,$dbNameList['columnName'][$i],$dbNameList['dataTypes'][$i]);
             }
             header('location: /');
+            }
         }
         else{
             $dbList = $this->model->getDatabaseList();
